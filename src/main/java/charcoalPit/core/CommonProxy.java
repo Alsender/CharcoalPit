@@ -10,6 +10,7 @@ import charcoalPit.items.ItemsRegistry;
 import charcoalPit.tile.TileActivePile;
 import charcoalPit.tile.TileCreosoteCollector;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.common.MinecraftForge;
@@ -53,6 +54,28 @@ public class CommonProxy {
 						entries.remove();
 						break;
 					}
+				}
+			}
+		}
+		Item ash=Item.getByNameOrId(Config.AshPreference);
+		if(ash!=null){
+			ItemStack ashStack=new ItemStack(ash, 1, Config.AshMeta);
+			int[] ids=OreDictionary.getOreIDs(ashStack);
+			for(int id:ids){
+				if(OreDictionary.getOreName(id).equals("dustAsh")){
+					ItemsRegistry.ash=ashStack.copy();
+					break;
+				}
+			}
+		}
+		Item coke=Item.getByNameOrId(Config.CokePreference);
+		if(coke!=null){
+			ItemStack cokeStack=new ItemStack(coke, 1, Config.CokeMeta);
+			int[] ids=OreDictionary.getOreIDs(cokeStack);
+			for(int id:ids){
+				if(OreDictionary.getOreName(id).equals("fuelCoke")){
+					ItemsRegistry.coke=cokeStack.copy();
+					break;
 				}
 			}
 		}

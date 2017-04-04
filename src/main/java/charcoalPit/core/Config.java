@@ -14,6 +14,8 @@ public class Config {
 	public static Boolean AllowFortune=true;
 	public static int CokeFuel=3200,CreosoteFuel=4800;
 	public static Boolean DisableFurnaceCharcoal=true;
+	public static String AshPreference,CokePreference;
+	public static int AshMeta,CokeMeta;
 	
 	public static void readcfg(){
 		Configuration cfg=CommonProxy.config;
@@ -45,6 +47,11 @@ public class Config {
 		CokeFuel=cfg.getInt("CokeFuel", CATEGORY_GENERAL, 3200, 0, 1000000, "The fuel value of coke. (char)coal is 1600");
 		CreosoteFuel=cfg.getInt("CreosoteFuel", CATEGORY_GENERAL, 4800, 0, 1000000, "The fuel value of a creosote bucket. (char)coal is 1600");
 		DisableFurnaceCharcoal=cfg.getBoolean("DisableFurnaceCharcoal", CATEGORY_GENERAL, true, "If the vanilla log->charcoal furnace recipe should be disabled");
+		AshPreference=cfg.getString("AshPreference", CATEGORY_GENERAL, "forestry:ash", "The prefered ash item to drop from charcoal/coke piles. Defaults to the mod's own if invalid");
+		AshMeta=cfg.getInt("AshMeta", CATEGORY_GENERAL, 0, 0, Integer.MAX_VALUE, "The metadata of the prefered ash item to drop from charcoal/coke piles");
+		CokePreference=cfg.getString("CokePreference", CATEGORY_GENERAL, "railcraft:fuel_coke", "The prefered coke item to drop from coke piles. Defaults to mod's own if invalid");
+		CokeMeta=cfg.getInt("CokeMeta", CATEGORY_GENERAL, 0, 0, Integer.MAX_VALUE, "The metadata of the prefered coke item to drop from coke piles");
+		
 		
 	}
 }

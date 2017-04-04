@@ -21,7 +21,7 @@ public class CharcoalPit {
 	public static CharcoalPit instance;
 	
 	@SidedProxy(clientSide="charcoalPit.core.ClientProxy",
-			serverSide="CharcoalPit.core.ServerProxy")
+			serverSide="charcoalPit.core.ServerProxy")
 	public static CommonProxy proxy;
 	
 	@EventHandler

@@ -1,13 +1,11 @@
 package charcoalPit.blocks;
 
 import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
 
 public class BlocksRegistry {
 	
 	public static BlockLogPile LogPile=new BlockLogPile();
-	public static BlockBase CokeBlock=new BlockBase(Material.ROCK, "block_coke");
+	public static BlockCoke CokeBlock=new BlockCoke();
 	public static BlockActivePile ActiveLogPile=new BlockActivePile(Material.WOOD, "active_log_pile", false);
 	public static BlockActivePile ActiveCoalPile=new BlockActivePile(Material.ROCK, "active_coal_pile", true);
 	public static BlockAshPile CharcoalPile=new BlockAshPile("charcoal_pile", false);
@@ -18,8 +16,6 @@ public class BlocksRegistry {
 	
 	public static void registerBlocks(){
 		LogPile.register();
-		CokeBlock.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-		Blocks.FIRE.setFireInfo(CokeBlock, 5, 5);
 		CokeBlock.register();
 		ActiveLogPile.register();
 		ActiveCoalPile.register();

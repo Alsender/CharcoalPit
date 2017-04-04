@@ -25,7 +25,7 @@ public class BlockActivePile extends BlockBase implements ITileEntityProvider{
 		super(materialIn, name);
 		isCoal=coal;
 		setHardness(isCoal?5:2);
-		setHarvestLevel(isCoal?"pickaxe":"axe", isCoal?1:0);
+		setHarvestLevel(isCoal?"pickaxe":"axe", 0);
 		setSoundType(isCoal?SoundType.STONE:SoundType.WOOD);
 	}
 	@Override
