@@ -32,7 +32,8 @@ public class CommonProxy {
 		BlocksRegistry.registerBlocks();
 		ItemsRegistry.registerItems();
 		ItemsRegistry.initOreDict();
-		FluidsRegistry.registerFluids();
+		if(Config.RegisterCreosote)
+			FluidsRegistry.registerFluids();
 	}
 	public void init(FMLInitializationEvent e){
 		GameRegistry.registerTileEntity(TileActivePile.class, Constants.MODID+"active_pile");

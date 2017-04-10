@@ -29,11 +29,13 @@ public class PileIgnitr {
 					boolean shouldIgnite=false;
 					for(int x=-1;x<=1;x++){
 						for(int y=-1;y<=1;y++){
-							for(int z=-1;z<=1;z++){
+							for(int z=-1;z<=1&&!shouldIgnite;z++){
 								BlockPos newpos=pos.add(x, y, z);
-								if(event.getWorld().getBlockState(newpos).getBlock()==Blocks.BRICK_BLOCK||
-										event.getWorld().getBlockState(newpos).getBlock()==Blocks.NETHER_BRICK){
-									shouldIgnite=true;
+								for(String name:Config.CokeBlocks){
+									if(event.getWorld().getBlockState(newpos).getBlock().getRegistryName().toString().equals(name)){
+										shouldIgnite=true;
+										break;
+									}
 								}
 							}
 						}

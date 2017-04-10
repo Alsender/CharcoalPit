@@ -16,6 +16,7 @@ public class Config {
 	public static Boolean DisableFurnaceCharcoal=true;
 	public static String AshPreference,CokePreference;
 	public static int AshMeta,CokeMeta;
+	public static boolean RegisterCreosote=true;
 	
 	public static void readcfg(){
 		Configuration cfg=CommonProxy.config;
@@ -51,7 +52,7 @@ public class Config {
 		AshMeta=cfg.getInt("AshMeta", CATEGORY_GENERAL, 0, 0, Integer.MAX_VALUE, "The metadata of the prefered ash item to drop from charcoal/coke piles");
 		CokePreference=cfg.getString("CokePreference", CATEGORY_GENERAL, "railcraft:fuel_coke", "The prefered coke item to drop from coke piles. Defaults to mod's own if invalid");
 		CokeMeta=cfg.getInt("CokeMeta", CATEGORY_GENERAL, 0, 0, Integer.MAX_VALUE, "The metadata of the prefered coke item to drop from coke piles");
-		
+		RegisterCreosote=cfg.getBoolean("RegisterCreosote", CATEGORY_GENERAL, true, "If the mod should register a Creosote Oil fluid. If disabled another mod must provide Creosote Oil or it might crash. Also disables the fluid block");
 		
 	}
 }
